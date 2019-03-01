@@ -1,0 +1,15 @@
+label{
+  font-weight: bold;
+  font-style: italic;
+}
+a{
+  color: inherit;
+}
+a:hover{
+  text-decoration: none;
+  color: #e67300;
+}
+
+.greybox{
+  background-color: #EEEEEE;
+}

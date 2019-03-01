@@ -1,0 +1,43 @@
+<br><br>
+<!-- <button type="button" name="button" (click)="test()">Test</button> -->
+<a href="javascript:void(0)" (click)="findByUser()">Memos by User</a><br>
+<div class="row mb-3" *ngFor="let memo of memos">
+  <div class="col-sm-7 greybox pb-1" *ngIf="!memo.inEdit" >
+    <a href="javascript:void(0)" (click)="memo.inEdit = true"><h4>{{memo.title}}</h4></a>
+    <p>{{memo.text}}</p>
+  </div>
+  <div class="col-sm-3 my-auto" *ngIf="!memo.inEdit">
+    <div class="justify-content-center">
+        <a  href="javascript:void(0)" (click)="delete(memo)"><img src="assets/delete.png" alt="Delete memo" width="18"></a>
+    </div>
+  </div>
+
+  <div class="col-sm-7 greybox form-group p-2" *ngIf="memo.inEdit">
+    <h4>{{memo.title}}</h4>
+    <label for="memoTitle">Text</label>
+    <input type="text" name="memoTitle" [(ngModel)]="memo.title" class="form-control form-control-sm">
+    <label for="memoText">Text</label>
+    <textarea name="memoText" [(ngModel)]="memo.text" class="form-control form-control-sm" rows="4"></textarea>
+    <br>
+    <button type="button" name="save-edit-memo" (click)="save(memo)">Save</button>
+    <button type="button" name="cancel-edit-memo" (click)="cancel(memo)">Cancel</button>
+  </div>
+</div>
+
+<div class="row form-group p-2" *ngIf="newMemo">
+  <div class="col-sm-7 greybox">
+    <h3>New Memo</h3>
+    <label for="newMemoTitle">Title</label>
+    <input type="text" name="newMemoTitle" [(ngModel)]="newMemo.title" class="form-control form-control-sm">
+    <label for="newMemoText">Text</label>
+    <textarea name="newMemoText" [(ngModel)]="newMemo.text" class="form-control form-control-sm" rows="4"></textarea>
+    <br/>
+    <button type="button" name="save-new-memo" (click)="save(newMemo)" >Save</button>
+    <button type="button" name="cancel-new-memo" (click)="cancel(newMemo)" >Cancel</button>
+  </div>
+</div>
+<div class="row text-right" *ngIf="!newMemo">
+  <div class="col-sm-7">
+    <button type="button" name="add-memo" (click)="add()" >Add</button>
+  </div>
+</div>
