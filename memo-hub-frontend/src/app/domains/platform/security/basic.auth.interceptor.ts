@@ -4,7 +4,7 @@ if the user is logged in.
 */
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {AuthenticationService} from './auth.service';
+import {AuthenticationService} from '../../users/auth.service';
 import { Inject } from '@angular/core';
 
 export class BasicAuthenticationInterceptor implements HttpInterceptor{
@@ -12,8 +12,7 @@ export class BasicAuthenticationInterceptor implements HttpInterceptor{
     constructor(@Inject(AuthenticationService) private service: AuthenticationService){
     }
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log(this.service);
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {        
         if(this.service.isAuthenticated()){
             let currentUser = this.service.getCurrentUser();
             request = request.clone({

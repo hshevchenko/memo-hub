@@ -6,11 +6,11 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import {MemoListComponent} from './domains/memos/memo.list';
-import {LoginComponent} from './domains/platform/security/login';
+import {LoginComponent} from './domains/users/login';
 
 import {MemoService} from './domains/memos/memo.service';
 import {BasicAuthenticationInterceptor} from './domains/platform/security/basic.auth.interceptor';
-import {AuthenticationService} from './domains/platform/security/auth.service';
+import {AuthenticationService} from './domains/users/auth.service';
 import {AppContext} from './domains/platform/security/app.context';
 
 @NgModule({

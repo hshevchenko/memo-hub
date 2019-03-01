@@ -13,14 +13,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+        <!--<a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>-->
       </li>
     </ul>
+    <small>
     <ul class="navbar-nav">
-        <a class="nav-link"  routerLink="/login" routerLinkActive="active">Login</a>
-          <!--<a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
-      <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>-->
+        <a class="nav-link"  *ngIf="!authService.isAuthenticated()" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-link" *ngIf="!authService.isAuthenticated()" routerLink="/register" routerLinkActive="active">Register</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</a>-->
     </ul>
+  </small>
   </div>
 </nav>
 <div class="container">

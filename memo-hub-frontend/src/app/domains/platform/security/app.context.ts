@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {User} from './users';
+import {User} from '../../users/users';
 
 @Injectable()
 export class AppContext{
